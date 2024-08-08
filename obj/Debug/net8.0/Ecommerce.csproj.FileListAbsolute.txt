@@ -134,3 +134,4 @@ C:\Learn_space\FullStack\Ecommerce\obj\Debug\net8.0\refint\Ecommerce.dll
 C:\Learn_space\FullStack\Ecommerce\obj\Debug\net8.0\Ecommerce.pdb
 C:\Learn_space\FullStack\Ecommerce\obj\Debug\net8.0\Ecommerce.genruntimeconfig.cache
 C:\Learn_space\FullStack\Ecommerce\obj\Debug\net8.0\ref\Ecommerce.dll
+C:\Learn_space\FullStack\Ecommerce\obj\Debug\net8.0\Ecommerce.sourcelink.json
