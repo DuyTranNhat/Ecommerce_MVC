@@ -1,6 +1,8 @@
 ﻿using Ecommerce.Data;
 using Microsoft.AspNetCore.Mvc;
+using Ecommerce.Models;
 using Microsoft.EntityFrameworkCore;
+using Ecommerce.Views.ViewModels;
 
 namespace Ecommerce.Controllers
 {
@@ -24,10 +26,10 @@ namespace Ecommerce.Controllers
                 listProduct = listProduct.Where(hh => hh.MaLoai == loai_sp);
             }
 
-            var result = listProduct.Select(p => new
+            var result = listProduct.Select(p => new ProductVM
             {
                 MaHh = p.MaHh,
-                TenHh = p.TenHh,
+                TenHH = p.TenHh,
                 DonGia = p.DonGia ?? 0,
                 Hinh = p.Hinh ?? "",
                 MoTaDonVi = p.MoTaDonVi ?? "",
@@ -59,6 +61,28 @@ namespace Ecommerce.Controllers
 
             return View(result);
 
+        }
+
+        public IActionResult Details(int query_sp)
+        {
+            var sp_existing = _dbContext.HangHoas.Include(hh => hh.MaLoaiNavigation)
+                    .SingleOrDefault(hh => hh.MaHh == query_sp);
+
+            if (sp_existing == null) return Redirect("/404");
+
+            var deTails_Product = new Product_DetailsVM {
+                MaHh = sp_existing.MaHh,
+                TenHH = sp_existing.TenHh,
+                Hinh = sp_existing.Hinh,
+                DonGia = sp_existing.DonGia ?? 0,
+                MoTaNgan = sp_existing.MoTaDonVi,
+                TenLoai = sp_existing.MaLoaiNavigation.TenLoai, 
+                ChiTiet = sp_existing.MoTa,
+                DiemDanhGia = 0,
+                SoLuongTon = 0,
+            };
+
+            return View(deTails_Product);
         }
     }
 }
