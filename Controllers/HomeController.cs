@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Ecommerce.Models;
+using Ecommerce.Data;
 
 namespace Ecommerce.Controllers;
 
@@ -8,6 +9,7 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
 
+    private readonly Hshop2023Context _dbContext;
     public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;

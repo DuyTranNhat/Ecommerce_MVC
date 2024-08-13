@@ -1,4 +1,4 @@
-@model Ecommerce.Views.ViewModels.Product_DetailsVM
+@model Ecommerce.ViewModels.Product_DetailsVM
 
 @{
     Layout = "_LayoutCustomer";
@@ -6,12 +6,12 @@
 
 <!-- Single Page Header start -->
 <div class="container-fluid page-header py-5">
-	<h1 class="text-center text-white display-6">Shop Detail</h1>
-	<ol class="breadcrumb justify-content-center mb-0">
-		<li class="breadcrumb-item"><a href="#">Home</a></li>
-		<li class="breadcrumb-item"><a href="#">Hàng hóa</a></li>
-		<li class="breadcrumb-item active text-white">@Model.TenHH</li>
-	</ol>
+    <h1 class="text-center text-white display-6">Shop Detail</h1>
+    <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Hàng hóa</a></li>
+        <li class="breadcrumb-item active text-white">@Model.TenHH</li>
+    </ol>
 </div>
 <!-- Single Page Header End -->
 
@@ -40,21 +40,25 @@
                             <i class="fa fa-star"></i>
                         </div>
                         <p class="mb-4">@Model.MoTaNgan</p>
-                        <div class="input-group quantity mb-5" style="width: 100px;">
-                            <div class="input-group-btn">
-                                <button class="btn btn-sm btn-minus rounded-circle bg-light border">
-                                    <i class="fa fa-minus"></i>
-                                </button>
+
+                        <form asp-action="Add" asp-controller="Cart" asp-route-id_product="@Model.MaHh">
+                            <div class="input-group quantity mb-5" style="width: 100px;">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-sm btn-minus rounded-circle bg-light border" type="button">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                </div>
+                                <input type="text" class="form-control form-control-sm text-center border-0" value="1"
+                                    name="quantity">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-sm btn-plus rounded-circle bg-light border" type="button">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                </div>
                             </div>
-                            <input type="text" class="form-control form-control-sm text-center border-0" value="1">
-                            <div class="input-group-btn">
-                                <button class="btn btn-sm btn-plus rounded-circle bg-light border">
-                                    <i class="fa fa-plus"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <a href="#" class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary"><i
-                                class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                            <button class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary"><i
+                                    class="fa fa-shopping-bag me-2 text-primary"></i>Add to cart</button>
+                        </form>
                     </div>
                     <div class="col-lg-12">
                         <nav>
@@ -484,3 +488,21 @@
         </div>
     </div>
 </div>
+
+@* @section scripts {
+    <script>
+    function increaseQuantity() {
+        var quantityInput = document.getElementById('quantityInput');
+        var currentValue = parseInt(quantityInput.value);
+        quantityInput.value = currentValue + 1;
+    }
+
+    function decreaseQuantity() {
+        var quantityInput = document.getElementById('quantityInput');
+        var currentValue = parseInt(quantityInput.value);
+        if (currentValue > 1) {
+            quantityInput.value = currentValue - 1;
+        }
+    }
+</script>
+} *@
