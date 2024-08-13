@@ -9,4 +9,10 @@ namespace Ecommerce.ViewModels
         public int SoLuong { get; set; }
         public double ThanhTien => SoLuong * DonGia;
     }
+
+    public class CartModel
+	{
+		public int Quantity { get; set; }
+		public double TotalPrice { get; set; }
+	}
 }

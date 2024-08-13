@@ -12,9 +12,8 @@ namespace Ecommerce.Controllers
     public class CartController : Controller
     {
         private readonly Hshop2023Context _dbContext;
-        public static string SessionKeyCart = "_Cart";
 
-        public List<CartItem> Cart => HttpContext.Session.Get<List<CartItem>>(SessionKeyCart) ?? new List<CartItem>();
+        public List<CartItem> Cart => HttpContext.Session.Get<List<CartItem>>(MySetting.SessionKeyCart) ?? new List<CartItem>();
 
         public CartController(Hshop2023Context dbContext)
         {
@@ -131,7 +130,7 @@ namespace Ecommerce.Controllers
 
         private void SaveCart(List<CartItem> cart)
         {
-            HttpContext.Session.Set(SessionKeyCart, cart);
+            HttpContext.Session.Set(MySetting.SessionKeyCart, cart);
         }
     }
 
