@@ -135,3 +135,5 @@ C:\Learn_space\FullStack\Ecommerce\obj\Debug\net8.0\Ecommerce.pdb
 C:\Learn_space\FullStack\Ecommerce\obj\Debug\net8.0\Ecommerce.genruntimeconfig.cache
 C:\Learn_space\FullStack\Ecommerce\obj\Debug\net8.0\ref\Ecommerce.dll
 C:\Learn_space\FullStack\Ecommerce\obj\Debug\net8.0\Ecommerce.sourcelink.json
+C:\Learn_space\FullStack\Ecommerce\bin\Debug\net8.0\AutoMapper.dll
+C:\Learn_space\FullStack\Ecommerce\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
